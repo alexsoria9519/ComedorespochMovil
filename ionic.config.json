@@ -1,0 +1,7 @@
+{
+  "name": "comespoch",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
