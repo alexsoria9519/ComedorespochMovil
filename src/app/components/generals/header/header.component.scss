@@ -1,0 +1,10 @@
+ion-toolbar {
+    //--background: var(--ion-color-primary);
+    --background: var(--ion-color-primary-tint);
+}
+
+
+ion-toolbar ion-title {
+    --color: var(--ion-color-primary-contrast);
+    text-align: center;
+}

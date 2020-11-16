@@ -1,9 +1,55 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>home</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header titulo="COMESPOCH"></app-header>
 
 <ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>COMESPOCH</ion-card-subtitle>
+      <ion-card-title>Comedor Politécnico</ion-card-title>
+    </ion-card-header>
 
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <img src="../../../../assets/resources/espoch.svg" />
+          </ion-col>
+          <ion-col>
+            <p>
+              Conozca sobre el menú del día y realice su reserva para los
+              servicios del comedor de la Escuela Superior Politécnica de
+              Chimborazo
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-item>
+      <ion-icon name="pizza-outline" slot="start"></ion-icon>
+      <ion-label>Menú</ion-label>
+      <ion-button color="secondary" class="see-more" fill="outline" slot="end"
+        >Ver</ion-button
+      >
+    </ion-item>
+
+    <ion-card-content>
+      En esta sección debe cargar la información general de los menús
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-item>
+      <ion-icon name="bookmarks-outline" slot="start"></ion-icon>
+      <ion-label>Reservas</ion-label>
+      <ion-button color="secondary" class="see-more" fill="outline" slot="end"
+        >Ver</ion-button
+      >
+    </ion-item>
+
+    <ion-card-content>
+      En esta sección debe cargar la información general de las reservas
+    </ion-card-content>
+  </ion-card>
 </ion-content>
