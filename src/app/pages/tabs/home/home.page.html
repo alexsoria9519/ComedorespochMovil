@@ -35,7 +35,9 @@
     </ion-item>
 
     <ion-card-content>
-      En esta sección debe cargar la información general de los menús
+      <p *ngIf="dataMenus.cantidad === 1"> {{ dataMenus.cantidad }} menu para el día de hoy  </p>
+      <p *ngIf="dataMenus.cantidad > 1"> {{ dataMenus.cantidad }} menus para el día de hoy  </p>
+      <p *ngIf="dataMenus.cantidad === 0"> No existen menus disponibles para el día de hoy  </p>
     </ion-card-content>
   </ion-card>
 

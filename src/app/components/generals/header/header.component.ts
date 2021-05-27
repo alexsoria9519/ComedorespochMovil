@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   @Input() titulo: string;
+  @Input() atras: boolean = false;
 
   constructor() { }
 

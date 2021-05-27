@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: MenusPage
+  },
+  {
+    path: 'menu-visor',
+    loadChildren: () => import('./menu-visor/menu-visor.module').then( m => m.MenuVisorPageModule)
   }
 ];
 

@@ -1,0 +1,17 @@
+
+
+<ion-grid *ngIf="dataMenus?.cantidad > 0; else nodata" >
+  <ion-list>
+    <ion-list-header> Menús del día </ion-list-header>
+    <ion-row *ngFor="let plan of dataMenus?.planificacionesMenu"> 
+      <ion-item (click)="emitirDatosMenu(plan.intidmenu)">
+        <ion-col class="col-6"> <p> {{ plan.intidmenu.strcaracteristicas}} </p> </ion-col>
+        <ion-col class="col-6"> Desde: {{ convertToString(plan.dtfechainicio) }} Hasta: {{ convertToString(plan.dtfechafin) }}   </ion-col>
+      </ion-item>
+    </ion-row>
+  </ion-list>
+</ion-grid>
+
+<ng-template #nodata>
+  <p> Por el momento no existen datos </p>
+</ng-template>
