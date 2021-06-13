@@ -1,0 +1,28 @@
+ion-card {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+ion-card-header {
+    --background: var(--ion-color-tertiary);
+}
+
+ion-card-title{
+    --color: var(--ion-color-secondary-contrast);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+ion-card-subtitle{
+    margin-top: 15px;
+    --color: var(--ion-color-dark-shade);
+    font-size: 15px;
+}
+
+ion-card-content{
+    color: var(--ion-color-dark-shade);
+}
+
+ion-card-content h5{
+    color: #000000;
+}

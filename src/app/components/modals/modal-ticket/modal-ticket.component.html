@@ -1,0 +1,31 @@
+
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="onCerrarModal()"
+                  fill='clear'
+                  shape="round">
+        <ion-icon color="dark" style="font-size: 4em;" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title text-capitalize> Reserva</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  
+  <ion-grid>
+    <app-ticket [venta]="venta"> </app-ticket>
+    <ion-row>
+      <ion-col class="col-12 codeQR">
+        <img src="{{ 'data:image/jpg;base64,' + qr }}" alt="Codigo QR de la reserva">
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>
+

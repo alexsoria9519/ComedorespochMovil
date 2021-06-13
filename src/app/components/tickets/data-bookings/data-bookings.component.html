@@ -1,0 +1,29 @@
+
+
+
+
+<ion-card >
+  <ion-card-header>
+    <ion-item lines="none">
+      <ion-card-title>Reservas</ion-card-title>
+      <ion-button fill="outline" slot="end" (click)="onCrearReserva()">
+        Reservar
+      </ion-button>
+    </ion-item>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-grid *ngIf="datosVentas?.cantidadVentas > 0; else noDataReservasUser" >
+      <ion-card-subtitle>Estas son las reservas con las que usted cuenta en el comedor de la institución</ion-card-subtitle>
+        <ion-row *ngFor="let venta of datosVentas?.ventas" (click)="emitirDatos(venta)"> 
+            <ion-col class="col-8"> <h5>  {{ venta?.intidcostousuario?.intidcosto?.strdetalle }} </h5> </ion-col>
+            <ion-col class="col-4"> {{ datosVentas.cantidadVentas }} tickets</ion-col>
+        </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>
+
+
+<ng-template #noDataReservasUser>
+  <p> Por el momento no existen datos de reservas</p>
+</ng-template>

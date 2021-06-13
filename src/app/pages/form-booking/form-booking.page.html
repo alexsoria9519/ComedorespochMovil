@@ -1,0 +1,77 @@
+<app-header atras="true" titulo="Reservar"></app-header>
+
+<ion-content>
+  <form [formGroup]="ventaForm">
+    <ion-list>
+      <ion-list-header> Ingrese los datos de su reserva </ion-list-header>
+      <ion-item>
+        <ion-label> Usuario: {{tipoUsuario}} </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label> Fecha: </ion-label>
+        <ion-input
+          name="dtfecha"
+          type="text"
+          formControlName="dtfecha"
+          required
+          placeholder="Ingrese la Fecha"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label> Cantidad: </ion-label>
+        <ion-input
+          name="intcantidad"
+          type="text"
+          formControlName="intcantidad"
+          required
+          placeholder="Ingrese la cantidad"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label> Menú </ion-label>
+        <ion-select
+          formControlName="intidcostousuario"
+          name="intidcostousuario"
+          placeholder="Seleccione un menú"
+          okText="Seleccionar"
+          cancelText="Cancelar"
+          [interfaceOptions]="costos.customAlertOptions"
+          interface="alert"
+        >
+          <ion-select-option
+            *ngFor="let costo of costosUsuarios"
+            [value]="costo.intidcostousuario"
+            >{{costo?.intidcosto?.intidtipomenu?.strtipo}} </ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+      <ion-button  type="submit" (click)="registrarReserva()" [disabled]="!ventaForm.valid">Reservar</ion-button>
+    </ion-list>
+  </form>
+  <!--<form [formGroup]="ventaForm" (ngSubmit)="registrarReserva()">
+         <ion-col class="col-12">
+          <ion-item>
+            <ion-label> Fecha: </ion-label>
+            <ion-input name="dtfecha" type="text" formControlName="dtfecha" required placeholder="Ingrese la Fecha" ></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col class="col-12">
+          <ion-item>
+            <ion-label> Cantidad: </ion-label>
+            <ion-input name="intcantidad" type="text" formControlName="intcantidad" required placeholder="Ingrese la cantidad" ></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col class="col-12">
+           <ion-item>
+            <ion-label> Menú </ion-label> 
+            <ion-select formControlName="intidcostousuario" name="intidcostousuario" placeholder="Seleccione un menú" okText="Seleccionar" cancelText="Cancelar" 
+                [interfaceOptions]="costos.customAlertOptions" interface="alert" [(ngModel)]=" paises.paisDefecto"> 
+                <ion-select formControlName="intidcostousuario" name="intidcostousuario" placeholder="Seleccione un menú" okText="Seleccionar" cancelText="Cancelar" 
+                [interfaceOptions]="costos.customAlertOptions" interface="alert">  
+                        <ion-select-option *ngFor="let costo of costosUsuarios"  [value]="costo.intidcostousuario" >{{costo?.intidcosto?.intidtipomenu?.strdetalle}} {{costo?.intidcosto?.intidtipousuario?.strdetalle}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+        </ion-col>
+        <ion-col class="col-12"></ion-col>
+      </form> -->
+</ion-content>

@@ -1,0 +1,77 @@
+<ion-card *ngIf="venta.intidventa > 0; else nodata">
+  <ion-card-header>
+    
+    <ion-card-title *ngIf="venta.blnreserva"> Datos de la reserva </ion-card-title>
+    <ion-card-title *ngIf="!venta.blnreserva"> Datos del Ticket de Compra </ion-card-title>
+    <ion-card-subtitle>{{convertToValidDate(venta.dtfecha) }}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col class="col-4">
+          <p><strong> Cédula </strong>  </p>
+        </ion-col>
+        <ion-col class="col-8">
+          <p> {{ venta?.intidcostousuario?.strcedula}} </p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="col-4">
+          <p><strong> Usuario </strong>  </p>
+        </ion-col>
+        <ion-col class="col-8">
+          <p> {{ venta?.intidcostousuario?.intidcosto?.intidtipousuario?.strdetalle }} </p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="col-4">
+          <p><strong> Tipo </strong>  </p>
+        </ion-col>
+        <ion-col class="col-8">
+          <p> {{ venta?.intidcostousuario?.intidcosto?.intidtipomenu?.strtipo }} </p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="col-4">
+          <p><strong> Tipo </strong>  </p>
+        </ion-col>
+        <ion-col class="col-8">
+          <p> {{ venta?.intidcostousuario?.intidcosto?.intidtipomenu?.strtipo }} </p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="col-4">
+          <p><strong> Reserva </strong>  </p>
+        </ion-col>
+        <ion-col class="col-8">
+          <p *ngIf="venta?.blnreserva"> Sí </p>
+          <p *ngIf="!venta?.blnreserva"> Sí </p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="col-4">
+          <p><strong> Valor </strong>  </p>
+        </ion-col>
+        <ion-col class="col-8">
+          <p> ${{ venta?.intidcostousuario?.intidcosto?.mnvalor}} </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+  </ion-card-content>
+</ion-card>
+
+<ng-template #nodata>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> Datos no Encontrados </ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <p> No existen datos de la reserva o compra </p>
+    </ion-card-content>
+  </ion-card>
+</ng-template>

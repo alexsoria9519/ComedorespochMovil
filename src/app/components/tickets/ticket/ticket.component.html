@@ -1,0 +1,56 @@
+
+
+  <ion-row *ngIf="venta; else noDataVenta">
+    <ion-col class="col-12">
+      <ion-label> <strong> Cedula: </strong> {{venta?.intidcostousuario?.strcedula }}</ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="col-12">
+      <ion-label> <strong> Fecha: </strong> {{convertToString(venta?.dtfecha) }}</ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="col-12"> 
+      <ion-label> 
+        <strong> Tipo de usuario: </strong> {{ venta?.intidcostousuario?.intidcosto?.intidtipousuario?.strdetalle   }}
+      </ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="col-12">
+      <ion-label> <strong> Detalle: </strong> {{ venta?.intidcostousuario?.strcedula }}</ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="col-12">
+      <ion-label> <strong> Costo: </strong> {{ venta?.intidcostousuario?.intidcosto?.mnvalor }}</ion-label>  
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="col-12">
+      <ion-label> <strong> Costo: </strong> {{ venta?.intidcostousuario?.intidcosto?.mnvalor }}</ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="col-12">
+      <ion-label *ngIf="venta.blnreserva"> <strong> Reserva: </strong> Si </ion-label>
+      <ion-label *ngIf="!venta.blnreserva"><strong> Reserva: </strong> No </ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="venta.blnestado" class="estadoRealizada">
+    <ion-col class="col-12 ">
+      <ion-label class="" ><strong> Estado: </strong> Realizada </ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="!venta.blnestado" class="estadoPendiente"> 
+    <ion-col class="col-12">
+      <ion-label class=""><strong> Estado: </strong> Pendiente </ion-label>
+    </ion-col>
+  </ion-row>
+
+<ng-template #noDataVenta>
+  <ion-row>
+    <ion-col class="col-12"><p> Por el momento no existen datos</p></ion-col>
+  </ion-row>
+</ng-template>

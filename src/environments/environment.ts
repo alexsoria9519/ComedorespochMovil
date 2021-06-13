@@ -4,17 +4,17 @@
 
 export const environment = {
   production: false,
-  // url: 'http://192.168.100.48:8080',
-  urllocal: 'http://192.168.100.48:8080',
+  // url: "http://192.168.100.48:8080",
+  url: "http://192.168.100.6:8080",
+  // urllocal: 'http://192.168.100.48:8080',
   // urllocal: 'http://192.168.100.6:8080',
 
   // urllocal: 'http://192.168.0.105:8080',
   // rest: '/da.ws-rest/webresources/daws-rest',
-  restlocal: '/ComedorREST/webresources',
+  rest: "/ComedorREST/webresources",
+  // restlocal: '/ComedorREST/webresources',
 
   //  //http://localhost:8080/ComedorREST/webresources
-
-
 };
 
 /*

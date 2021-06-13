@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
-const URL = environment.urllocal;
-const REST = environment.restlocal;
+const URL = environment.url;
+const REST = environment.rest;
 
 @Injectable({
   providedIn: 'root'

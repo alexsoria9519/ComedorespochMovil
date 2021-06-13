@@ -51,7 +51,13 @@
     </ion-item>
 
     <ion-card-content>
-      En esta sección debe cargar la información general de las reservas
+      <p *ngIf="reservas.cantidad === 1"> {{ reservas.cantidad }} reserva activa  </p>
+      <p *ngIf="reservas.cantidad > 1"> {{ tickets.cantidadVentas }} reservas activas  </p>
+      <p *ngIf="reservas.cantidad === 0"> No existen reservas activas </p>
+
+      <p *ngIf="tickets.cantidadVentas === 1"> {{ tickets.cantidadVentas }} ticket comprados  </p>
+      <p *ngIf="tickets.cantidadVentas > 1"> {{ tickets.cantidadVentas }} tickets comprados  </p>
+      <p *ngIf="tickets.cantidadVentas === 0"> No existen tickets comprados </p>
     </ion-card-content>
   </ion-card>
 </ion-content>

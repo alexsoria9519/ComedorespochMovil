@@ -1,0 +1,20 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Datos de mis compras</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-card-subtitle>Estos son los datos de mis compras realizadas en el comedor de la institución</ion-card-subtitle>
+    <ion-grid *ngIf="datosVentas?.cantidadVentas > 0; else noDataVentasUser" >
+        <ion-row *ngFor="let plan of datosVentas?.ventas"> 
+            <ion-col class="col-8"> <h5>  {{ plan.nombrecostousuario }} </h5> </ion-col>
+            <ion-col class="col-4"> {{ plan.cantidadvendidos }} tickets</ion-col>
+        </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>
+
+
+<ng-template #noDataVentasUser>
+  <p> Por el momento no existen datos compras de tickets</p>
+</ng-template>
