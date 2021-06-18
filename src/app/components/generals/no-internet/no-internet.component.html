@@ -1,0 +1,12 @@
+<div *ngIf="!tieneInternet" class='divEspera' padding>
+  <ion-img src='/assets/sinInternet.gif' class="gifSinInternet"></ion-img>
+  <div style="text-align: center;">
+    <h2>
+      !No hay internet!
+    </h2>
+    <h4>
+      Revisa tu conexión y recarga la página.
+    </h4>
+    <button (click)="recargarPagina()" class=" btn btn-link">Reintentar</button>
+  </div>
+</div>

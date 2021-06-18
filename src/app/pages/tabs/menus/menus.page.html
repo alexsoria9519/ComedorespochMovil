@@ -1,8 +1,14 @@
+<app-no-internet *ngIf="!tieneInternet;else contenttota"></app-no-internet>
 
-<app-header titulo="Menus"></app-header>
+<ng-template #contenttota>
+  <app-header titulo="Menus"></app-header>
 
-<ion-content>
+  <ion-content>
+    <!-- Refresher -->
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
 
-  <app-data-menus (menuEmit)="goToMenuVisor($event)"> </app-data-menus>
-
-</ion-content>
+    <app-data-menus (menuEmit)="goToMenuVisor($event)"> </app-data-menus>
+  </ion-content>
+</ng-template>

@@ -1,63 +1,86 @@
-<app-header titulo="COMESPOCH"></app-header>
+<app-no-internet *ngIf="!tieneInternet;else contenttota"></app-no-internet>
 
-<ion-content>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>COMESPOCH</ion-card-subtitle>
-      <ion-card-title>Comedor Politécnico</ion-card-title>
-    </ion-card-header>
+<ng-template #contenttota>
+  <app-header titulo="COMESPOCH"></app-header>
 
-    <ion-card-content>
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <img src="../../../../assets/resources/espoch.svg" />
-          </ion-col>
-          <ion-col>
-            <p>
-              Conozca sobre el menú del día y realice su reserva para los
-              servicios del comedor de la Escuela Superior Politécnica de
-              Chimborazo
-            </p>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card-content>
-  </ion-card>
+  <ion-content>
+    <!-- Refresher -->
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
 
-  <ion-card>
-    <ion-item>
-      <ion-icon name="pizza-outline" slot="start"></ion-icon>
-      <ion-label>Menú</ion-label>
-      <ion-button color="secondary" class="see-more" fill="outline" slot="end"
-        >Ver</ion-button
-      >
-    </ion-item>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>COMESPOCH</ion-card-subtitle>
+        <ion-card-title>Comedor Politécnico</ion-card-title>
+      </ion-card-header>
 
-    <ion-card-content>
-      <p *ngIf="dataMenus.cantidad === 1"> {{ dataMenus.cantidad }} menu para el día de hoy  </p>
-      <p *ngIf="dataMenus.cantidad > 1"> {{ dataMenus.cantidad }} menus para el día de hoy  </p>
-      <p *ngIf="dataMenus.cantidad === 0"> No existen menus disponibles para el día de hoy  </p>
-    </ion-card-content>
-  </ion-card>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <img src="../../../../assets/resources/espoch.svg" />
+            </ion-col>
+            <ion-col>
+              <p>
+                Conozca sobre el menú del día y realice su reserva para los
+                servicios del comedor de la Escuela Superior Politécnica de
+                Chimborazo
+              </p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
 
-  <ion-card>
-    <ion-item>
-      <ion-icon name="bookmarks-outline" slot="start"></ion-icon>
-      <ion-label>Reservas</ion-label>
-      <ion-button color="secondary" class="see-more" fill="outline" slot="end"
-        >Ver</ion-button
-      >
-    </ion-item>
+    <ion-card>
+      <ion-item>
+        <ion-icon name="pizza-outline" slot="start"></ion-icon>
+        <ion-label>Menú</ion-label>
+        <ion-button color="secondary" class="see-more" fill="outline" slot="end"
+          >Ver</ion-button
+        >
+      </ion-item>
 
-    <ion-card-content>
-      <p *ngIf="reservas.cantidad === 1"> {{ reservas.cantidad }} reserva activa  </p>
-      <p *ngIf="reservas.cantidad > 1"> {{ tickets.cantidadVentas }} reservas activas  </p>
-      <p *ngIf="reservas.cantidad === 0"> No existen reservas activas </p>
+      <ion-card-content>
+        <p *ngIf="dataMenus.cantidad === 1">
+          {{ dataMenus.cantidad }} menu para el día de hoy
+        </p>
+        <p *ngIf="dataMenus.cantidad > 1">
+          {{ dataMenus.cantidad }} menus para el día de hoy
+        </p>
+        <p *ngIf="dataMenus.cantidad === 0">
+          No existen menus disponibles para el día de hoy
+        </p>
+      </ion-card-content>
+    </ion-card>
 
-      <p *ngIf="tickets.cantidadVentas === 1"> {{ tickets.cantidadVentas }} ticket comprados  </p>
-      <p *ngIf="tickets.cantidadVentas > 1"> {{ tickets.cantidadVentas }} tickets comprados  </p>
-      <p *ngIf="tickets.cantidadVentas === 0"> No existen tickets comprados </p>
-    </ion-card-content>
-  </ion-card>
-</ion-content>
+    <ion-card>
+      <ion-item>
+        <ion-icon name="bookmarks-outline" slot="start"></ion-icon>
+        <ion-label>Reservas</ion-label>
+        <ion-button color="secondary" class="see-more" fill="outline" slot="end"
+          >Ver</ion-button
+        >
+      </ion-item>
+
+      <ion-card-content>
+        <p *ngIf="reservas.cantidad === 1">
+          {{ reservas.cantidad }} reserva activa
+        </p>
+        <p *ngIf="reservas.cantidad > 1">
+          {{ tickets.cantidadVentas }} reservas activas
+        </p>
+        <p *ngIf="reservas.cantidad === 0">No existen reservas activas</p>
+
+        <p *ngIf="tickets.cantidadVentas === 1">
+          {{ tickets.cantidadVentas }} ticket comprados
+        </p>
+        <p *ngIf="tickets.cantidadVentas > 1">
+          {{ tickets.cantidadVentas }} tickets comprados
+        </p>
+        <p *ngIf="tickets.cantidadVentas === 0">No existen tickets comprados</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</ng-template>

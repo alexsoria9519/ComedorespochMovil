@@ -16,6 +16,6 @@ export class TicketComponent implements OnInit {
   convertToString(fecha: string) {
     let fechaArr = fecha.split("[UTC]");
     let date = new Date(fechaArr[0]);
-    return `${date.getDay()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+    return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
   }
 }

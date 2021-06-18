@@ -8,17 +8,23 @@ import { Menu } from "../../../config/clases";
   styleUrls: ["./menus.page.scss"],
 })
 export class MenusPage implements OnInit {
+  tieneInternet = navigator.onLine;
   constructor(private nav: NavController) {}
 
-  ngOnInit() {
-    
+  ngOnInit() {}
+
+  goToMenuVisor(menu: Menu) {
+    this.nav.navigateForward("/tabs/menus/menu-visor", {
+      animated: true,
+      queryParams: {
+        idMenu: menu.intidmenu,
+      },
+    });
   }
 
-  goToMenuVisor(menu: Menu){
-    this.nav.navigateForward('/tabs/menus/menu-visor', { animated: true, queryParams: {
-      idMenu: menu.intidmenu
-    }});
+  doRefresh(event) {
+    setTimeout(() => {
+      event.target.complete();
+    }, 2000);
   }
-
-  
 }

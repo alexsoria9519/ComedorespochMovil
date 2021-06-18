@@ -9,7 +9,8 @@ import { Venta } from "../../../config/clases";
   styleUrls: ["./bookings.page.scss"],
 })
 export class BookingsPage implements OnInit {
-  constructor(private modalCtrl: ModalController,) {}
+  tieneInternet = navigator.onLine;
+  constructor(private modalCtrl: ModalController) {}
 
   ngOnInit() {}
 
@@ -17,13 +18,19 @@ export class BookingsPage implements OnInit {
     const modal = await this.modalCtrl.create({
       component: ModalTicketComponent,
       componentProps: {
-        venta
+        venta,
       },
       showBackdrop: true,
       // cssClass: 'modal-transparente'
     });
 
     modal.present();
-    console.log('Venta Seleccionada ', venta);
+    console.log("Venta Seleccionada ", venta);
+  }
+
+  doRefresh(event) {
+    setTimeout(() => {
+      event.target.complete();
+    }, 2000);
   }
 }

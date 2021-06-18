@@ -10,6 +10,7 @@ import { UiService } from "src/app/services/ui.service";
   styleUrls: ["./form-booking.page.scss"],
 })
 export class FormBookingPage implements OnInit {
+  tieneInternet = navigator.onLine;
   ventaForm: FormGroup;
   tipoUsuario: string;
   costosUsuarios: CostoUsuario[];
@@ -131,5 +132,11 @@ export class FormBookingPage implements OnInit {
     // month is 0-based, that's why we need dataParts[1] - 1
     var dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
     return new Date();
+  }
+
+  doRefresh(event) {
+    setTimeout(() => {
+      event.target.complete();
+    }, 2000);
   }
 }

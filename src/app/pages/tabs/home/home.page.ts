@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { VentasService } from "../../../services/ventas.service";
+import { Network } from "@ionic-native/network/ngx";
 import {
   dataVentas,
   planificacionesMenu,
@@ -13,6 +14,7 @@ import { MenuService } from "../../../services/menu.service";
   styleUrls: ["./home.page.scss"],
 })
 export class HomePage implements OnInit {
+  tieneInternet = navigator.onLine;
   dataMenus: planificacionesMenu = {
     cantidad: 0,
     planificacionesMenu: [],
@@ -31,8 +33,14 @@ export class HomePage implements OnInit {
 
   constructor(
     private menuService: MenuService,
-    private ventasService: VentasService
-  ) {}
+    private ventasService: VentasService,
+    private network: Network
+  ) {
+    this.network.onDisconnect().subscribe(() => {
+      // Si se desconecta del internet recargo la página para mostar appnointernet
+      location.reload();
+    });
+  }
 
   ngOnInit() {
     this.loadMenusFechaActual();
@@ -85,5 +93,14 @@ export class HomePage implements OnInit {
     } catch (e) {
       console.error("Error ", e);
     }
+  }
+
+  doRefresh(event) {
+    setTimeout(() => {
+      this.loadMenusFechaActual();
+      this.loadDataTickets();
+      this.loadDataReservas();
+      event.target.complete();
+    }, 2000);
   }
 }
