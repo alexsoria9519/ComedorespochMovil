@@ -1,9 +1,10 @@
 <ion-card>
   <ion-card-header>
-    <ion-card-title>Datos de mis compras</ion-card-title>
+    <ion-card-title *ngIf="identificador === 'compras'">Datos de mis compras</ion-card-title>
+    <ion-card-title *ngIf="identificador === 'comprasHoy'">Mis compras hoy</ion-card-title>
   </ion-card-header>
 
-  <ion-card-content>
+  <ion-card-content *ngIf="identificador === 'compras'">
     <ion-card-subtitle>Estos son los datos de mis compras realizadas en el comedor de la institución</ion-card-subtitle>
     <ion-grid *ngIf="datosVentas?.cantidadVentas > 0; else noDataVentasUser" >
         <ion-row *ngFor="let plan of datosVentas?.ventas"> 
@@ -12,9 +13,22 @@
         </ion-row>
     </ion-grid>
   </ion-card-content>
+
+  <ion-card-content *ngIf="identificador === 'comprasHoy'">
+    <ion-card-subtitle>Estos son los datos de mis compras del dia de hoy</ion-card-subtitle>
+    <ion-grid *ngIf="ventasHoy?.cantidad > 0; else noDataVentasHoyUser" >
+        <ion-row *ngFor="let venta of ventasHoy?.ventas" (click)="emitirDatos(venta)"> 
+            <ion-col class="col-8"> <h5>  {{ venta?.intidcostousuario?.intidcosto?.strdetalle }} </h5> </ion-col>
+        </ion-row>
+    </ion-grid>
+  </ion-card-content>
 </ion-card>
 
 
 <ng-template #noDataVentasUser>
+  <p> Por el momento no existen datos compras de tickets</p>
+</ng-template>
+
+<ng-template #noDataVentasHoyUser>
   <p> Por el momento no existen datos compras de tickets</p>
 </ng-template>

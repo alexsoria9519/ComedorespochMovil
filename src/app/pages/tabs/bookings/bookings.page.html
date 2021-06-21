@@ -9,6 +9,8 @@
       <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
 
+    <app-tickets cedula="1721796066" identificador="comprasHoy" (compraEmit)="ventaSeleccionada($event)"></app-tickets>
+
     <app-data-bookings
       cedula="1721796066"
       (reservaEmit)="ventaSeleccionada($event)"

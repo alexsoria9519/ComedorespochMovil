@@ -37,7 +37,12 @@
       <ion-item>
         <ion-icon name="pizza-outline" slot="start"></ion-icon>
         <ion-label>Menú</ion-label>
-        <ion-button color="secondary" class="see-more" fill="outline" slot="end"
+        <ion-button
+          color="secondary"
+          class="see-more"
+          fill="outline"
+          slot="end"
+          (click)="onNavigate('menus')"
           >Ver</ion-button
         >
       </ion-item>
@@ -58,13 +63,24 @@
     <ion-card>
       <ion-item>
         <ion-icon name="bookmarks-outline" slot="start"></ion-icon>
-        <ion-label>Reservas</ion-label>
-        <ion-button color="secondary" class="see-more" fill="outline" slot="end"
+        <ion-label>Datos Tickets</ion-label>
+        <ion-button
+          color="secondary"
+          class="see-more"
+          fill="outline"
+          slot="end"
+          (click)="onNavigate('tickets')"
           >Ver</ion-button
         >
       </ion-item>
 
       <ion-card-content>
+        <p *ngIf="ventasHoy.cantidad > 0" (click)="onNavigate('tickets')">
+          {{ ventasHoy.cantidad }} tickets el día de hoy
+        </p>
+        <p *ngIf="ventasHoy.cantidad === 0">
+          No existen tickets para el día de hoy
+        </p>
         <p *ngIf="reservas.cantidad === 1">
           {{ reservas.cantidad }} reserva activa
         </p>
