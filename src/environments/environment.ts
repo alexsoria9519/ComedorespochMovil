@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // url: "http://192.168.100.48:8080",
-  url: "http://192.168.100.6:8080",
+  url: "http://192.168.1.9:8080",
   // urllocal: 'http://192.168.100.48:8080',
   // urllocal: 'http://192.168.100.6:8080',
 
