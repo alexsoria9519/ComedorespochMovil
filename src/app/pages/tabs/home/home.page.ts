@@ -135,6 +135,8 @@ export class HomePage implements OnInit {
         break;
       case "menus":  this.nav.navigateForward(`/tabs/menus`, {animated: true})
         break;
+      case "horarios": this.nav.navigateForward(`horario-antencion`, {animated: true})
+        break;
     }
   }
 }

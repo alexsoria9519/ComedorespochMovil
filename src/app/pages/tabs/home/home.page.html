@@ -14,7 +14,6 @@
         <ion-card-subtitle>COMESPOCH</ion-card-subtitle>
         <ion-card-title>Comedor Politécnico</ion-card-title>
       </ion-card-header>
-
       <ion-card-content>
         <ion-grid>
           <ion-row>
@@ -32,6 +31,28 @@
         </ion-grid>
       </ion-card-content>
     </ion-card>
+
+
+    <ion-card>
+      <ion-item>
+        <ion-icon name="alarm" slot="start"></ion-icon>
+        <ion-label>Horarios</ion-label>
+        <ion-button
+          color="secondary"
+          class="see-more"
+          fill="outline"
+          slot="end"
+          (click)="onNavigate('horarios')"
+          >Ver</ion-button
+        >
+      </ion-item>
+      <ion-card-content>
+        <p>
+          Horarios de antención del comedor de la Escuela Superior Politécnica de Chimborazo
+        </p>
+      </ion-card-content>
+    </ion-card>
+
 
     <ion-card>
       <ion-item>
